@@ -1,5 +1,13 @@
 # appointy-test
-
+Todo-App
+- All functionalities working
+- PWA Available at : https://todo-app-ad981.firebaseapp.com
+- To host PWA on your localhost:
+--- Install ngrok via npm globally
+--- run "npm run build"
+--- Start nginx and navigate to dist folder in the project
+--- Start localhost
+--- Start ngrok at the same port as localhost
 ## Project setup
 ```
 npm install

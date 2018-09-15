@@ -6,9 +6,10 @@
             <q-btn icon="navigate_next" flat round @click="showGroup(id)"/>
         </div>
         <div class="card-seperator"></div>
-        <div class="card-content">
+        <div class="card-content flex">
             <!-- <content-component v-if="item.content.length" :content="item.content"></content-component> -->
-            <span  class="light-color">No Content Here</span>
+            <span  class="light-color">Click on Arrow to go inside</span>
+             <q-btn icon="delete" flat round @click="deleteGroup(id)"/>
         </div>
     </div>
 </div>
@@ -27,6 +28,9 @@ export default {
     methods: {
         showGroup(id){
             this.$emit('openGroup', id)
+        },
+        deleteGroup(id){
+            this.$emit('deleteGroup', id)
         }
     }
 }

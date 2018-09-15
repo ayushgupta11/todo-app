@@ -3,7 +3,8 @@
         <div class="nav flex" style="justify-content: flex-end;border-bottom: 2px solid #ccc;">
             <q-btn icon="close" flat round @click="closeModal" />
         </div>
-        <h4>{{todoList.title}}</h4>
+        <q-alert style="margin-top: 20px;" color="grey" icon="info">CLick on the Todo Item to delete</q-alert>
+        <h4 class="up">{{todoList.title}}</h4>
         <div class="add-todo flex">
             <input type="text" class="input" placeholder="Add New Todo" v-model="newTodo" />
             <q-btn round icon="add" @click="addTodo"/>

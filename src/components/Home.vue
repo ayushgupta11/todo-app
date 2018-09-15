@@ -9,7 +9,7 @@
         </div>
         <div class="flex row todo-groups">
             <template v-for="(item, index) in groupsList" >
-                <group-component :id="index" :item="item" :key="index" class="group-item" @openGroup="showModal" @mouseover="showDeleteGroup"></group-component>
+                <group-component :id="index" :item="item" :key="index" class="group-item" @openGroup="showModal" @deleteGroup="deleteList"></group-component>
             </template>
         </div>
         <q-modal v-show="selectedTodoList != null" ref="todoModal" maximized>
@@ -50,6 +50,9 @@ export default {
         },
         closeTodoModal(){
             this.$refs.todoModal.hide()
+        },
+        deleteList(params){
+            this.$store.commit('deleteGroup', params)
         },
         addNewList(){
             if(this.listTitle.length){

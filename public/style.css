@@ -59,6 +59,10 @@
 .card-title{
     justify-content: space-between;
 }
+.card-content{
+    justify-content: space-between;
+    align-items: center;
+}
 .card-seperator{
     border: 1px solid #eee;
 }
@@ -68,8 +72,7 @@
     z-index: 1;
 }
 .todo{
-
-    margin-left: 10px;
+    margin-left: 30px;
     border: none;
 }
 input :active{
@@ -88,7 +91,7 @@ input :active{
 }
 .todo-completed{
     text-decoration: line-through;
-    margin-left: 10px;
+    margin-left: 30px;
 }
 @media screen and (max-width: 768px) {
     .todo-groups{
