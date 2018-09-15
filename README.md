@@ -5,7 +5,7 @@ Todo-App
 - To host PWA on your localhost:
 --- Install ngrok via npm globally
 --- run "npm run build"
---- Start nginx and navigate to dist folder in the project
+--- Start nginx and navigate to "dist" folder in the project
 --- Start localhost
 --- Start ngrok at the same port as localhost
 ## Project setup
