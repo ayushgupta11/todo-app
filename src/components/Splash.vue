@@ -1,6 +1,6 @@
 <template>
 <div class="splash-container">
-        <img src="https://cdn0.iconfinder.com/data/icons/illustricon-tech-iv/512/todo-512.png" />
+        <img src="../statics/todo.png" />
         <span class="title">Todo App</span>
 </div>
 </template>
