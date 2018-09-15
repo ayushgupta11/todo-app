@@ -1,21 +1,24 @@
 <template>
     <div class="flex column todo-list h-center v-center" v-if="todoList != null">
+        <div class="nav flex" style="justify-content: flex-end;border-bottom: 2px solid #ccc;">
+            <q-btn icon="close" flat round @click="closeModal" />
+        </div>
         <h4>{{todoList.title}}</h4>
         <div class="add-todo flex">
             <input type="text" class="input" placeholder="Add New Todo" v-model="newTodo" />
             <q-btn round icon="add" @click="addTodo"/>
         </div>
-        <div class="flex column todo-list">
-                <div v-if="todoList.content.length" v-for="(todo , index) in todoList.content" :key="index">
+        <div class="flex column list" v-if="todoList.hasOwnProperty('content') && todoList.content.length">
+                <div class="flex" v-if="todoList.content.length" v-for="(todo , index) in todoList.content" :key="index">
                     <div v-if="!todo.completed">
                         <q-checkbox v-model="todo.completed" @input="updateTodo(index)"/>
-                        <span class="todo">{{todo.item}}</span>
+                        <span class="todo" @click="deleteTodo(index)">{{todo.item}}</span>
                     </div>
                 </div>
                     <q-collapsible group="completed" icon="check" :label="completedItems">
                         <div v-for="(todo , index) in todoList.content" v-if="todoList.content.length && todo.completed"  :key="index">
                             <q-checkbox v-model="todo.completed" @input="updateTodo(index)"/>
-                            <span class="todo-completed">{{todo.item}}</span>
+                            <span class="todo-completed"  @click="deleteTodo(index)">{{todo.item}}</span>
                         </div>
                     </q-collapsible>
         </div>
@@ -33,12 +36,17 @@ export default {
     computed: {
         completedItems(){
             let filtered = []
-            this.todoList.content.forEach(todo => {
-               if(todo.completed){
-                   filtered.push(todo)
-               } 
-            })
-            return 'Completed (' + filtered.length + ')' 
+                if(this.todoList.hasOwnProperty('content') && this.todoList.content.length){
+                this.todoList.content.forEach(todo => {
+                if(todo.completed){
+                    filtered.push(todo)
+                } 
+                })
+                return 'Completed (' + filtered.length + ')' 
+            }
+            else{
+                return ''
+            }
         }
     },
     methods: {
@@ -49,6 +57,15 @@ export default {
                 todo : this.todoList
             }
             this.$store.commit('updateTodo', updateData)
+        },
+        closeModal(){
+            this.$emit('closeModal' , true)
+        },
+        deleteTodo(index){
+            this.$store.commit('deleteTodo', {
+                id: this.id,
+                ind: index
+            })
         },
         addTodo(){
             let newTodo = {

@@ -1,6 +1,5 @@
 <template>
 <div class="flex">
-     <div class="delete-overlay"></div>
     <div class="card flex column group grow">
         <div class="flex card-title v-center">
             <span>{{item.title}}</span>

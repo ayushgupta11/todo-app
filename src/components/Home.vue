@@ -9,11 +9,11 @@
         </div>
         <div class="flex row todo-groups">
             <template v-for="(item, index) in groupsList" >
-                <group-component :id="index" :item="item" :key="index" class="group-item" @openGroup="showModal"></group-component>
+                <group-component :id="index" :item="item" :key="index" class="group-item" @openGroup="showModal" @mouseover="showDeleteGroup"></group-component>
             </template>
         </div>
         <q-modal v-show="selectedTodoList != null" ref="todoModal" maximized>
-            <todo-component :todoList="selectedTodoList" :id="selectedTodoListId"></todo-component>
+            <todo-component :todoList="selectedTodoList" :id="selectedTodoListId" @closeModal="closeTodoModal"></todo-component>
         </q-modal>
     </div>
 </template>
@@ -45,11 +45,17 @@ export default {
         openCard(){
             console.log('Card opened')
         },
+        showDeleteGroup(){
+            console.log("Hiahahahahahah")
+        },
+        closeTodoModal(){
+            this.$refs.todoModal.hide()
+        },
         addNewList(){
             if(this.listTitle.length){
                 let newList = {
                     title: this.listTitle,
-                    content: ''
+                    content: []
                 }
                 this.$store.commit('addNewList', newList)
                 this.$q.notify({
@@ -71,4 +77,9 @@ export default {
 }
 </script>
 <style scoped>
+.modal-content{
+    background: #abbaab;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffff, #abbaab);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffff, #abbaab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 </style>

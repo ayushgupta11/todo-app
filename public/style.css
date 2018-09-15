@@ -38,8 +38,11 @@
 .todo-groups{
     margin-top: 30px;
 }
+.nav{
+    width: 100%;
+}
 .group{
-    padding: 10px 20px;
+    padding: 10px 30px;
     background: white;
 }
 .group-item{
@@ -64,12 +67,20 @@
     background: #333;
     z-index: 1;
 }
-.todo-list{
-    margin-top: 20px;
-}
 .todo{
     margin-left: 10px;
     border: none;
+}
+.list{
+    margin-top: 20px;
+}
+.todo:hover{
+    color: red;
+    text-decoration: line-through;
+}
+.todo-completed:hover{
+    color: red;
+    text-decoration: line-through;
 }
 .todo-completed{
     text-decoration: line-through;
