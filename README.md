@@ -1,4 +1,4 @@
-# TODO_APP_VUE_JS
+# TODO APP based on Vue.js
 Todo-App
 * Built completely using Vue & Vuex.
 * All functionalities working.
