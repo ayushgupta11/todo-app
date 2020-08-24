@@ -1,4 +1,4 @@
-# appointy-test
+# TODO_APP_VUE_JS
 Todo-App
 * Built completely using Vue & Vuex.
 * All functionalities working.
